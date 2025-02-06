@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Pulls the code from the Git repository
+                git 'https://github.com/adityamaayekar07/Hello/new/main'
+            }
+        }
+
+        stage('Compile') {
+            steps {
+                // Compile the Java file using javac
+                bat 'javac Hello.java'
+            }
+        }
+
+        stage('Run') {
+            steps {
+                // Run the compiled Java file
+                bat 'java Hello'
+            }
+        }
+    }
+}
